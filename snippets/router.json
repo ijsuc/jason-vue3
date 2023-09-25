@@ -1,0 +1,108 @@
+{
+  "Vue Router beforeEach": {
+    "prefix": "beforeeach",
+    "body": [
+      "router.beforeEach((to, from, next) => {",
+      "\t${1:next();}",
+      "});"
+    ],
+    "description": "全局前置守卫"
+  },
+  "Vue Router beforeResolve": {
+    "prefix": "beforeresolve",
+    "body": [
+      "router.beforeResolve((to, from, next) => {",
+      "\t${1:next();}",
+      "});"
+    ],
+    "description": "全局解析守卫"
+  },
+  "Vue Router afterEach": {
+    "prefix": "aftereach",
+    "body": [
+      "router.afterEach((to, from) => {",
+      "\t",
+      "});"
+    ],
+    "description": "全局后置钩子"
+  },
+  "Vue Router beforeEnter": {
+    "prefix": "beforeenter",
+    "body": [
+      "beforeEnter(to, from, next) {",
+      "\t${1:next();}",
+      "},"
+    ],
+    "description": "路由独享的守卫"
+  },
+  "Vue Router beforeRouteEnter": {
+    "prefix": "beforeRouteEnter",
+    "body": [
+      "beforeRouteEnter(to, from, next) {",
+      "\tnext(vm => {${1:}});",
+      "},"
+    ],
+    "description": "在渲染该组件的对应路由被验证前调用，不能获取组件实例 `this` ！因为当守卫执行时，组件实例还没被创建！"
+  },
+  "Vue Router beforeRouteUpdate": {
+    "prefix": "beforeRouteUpdate",
+    "body": [
+      "beforeRouteUpdate(to, from, next) {",
+      "\t${1:next();}",
+      "},"
+    ],
+    "description": "在当前路由改变，但是该组件被复用时调用，因为在这种情况发生的时候，组件已经挂载好了，导航守卫可以访问组件实例 `this`"
+  },
+  "Vue Router beforeRouteLeave": {
+    "prefix": "beforeRouteLeave",
+    "body": [
+      "beforeRouteLeave(to, from, next) {",
+      "\t${1:next();}",
+      "},"
+    ],
+    "description": "在导航离开渲染该组件的对应路由时调用"
+  },
+  "Vue Router Route": {
+    "prefix": "vroute",
+    "body": [
+      "{",
+      "\tpath: '${1:pathName}',",
+      "\tname: '${2:routeName}',",
+      "\tcomponent: () => import('./${3:pathToComponent}'),",
+      "},"
+    ],
+    "description": "Vue Router route with per route code-splitting"
+  },
+  "const route useRoute": {
+    "prefix": "constroute",
+    "body": [
+      "const route = useRoute()"
+    ],
+    "description": "在 setup 中访问路由和当前路由"
+  },
+  "const router useRouter": {
+    "prefix": "constrouter",
+    "body": [
+      "const router = useRouter()"
+    ],
+    "description": "在 setup 中访问路由和当前路由"
+  },
+  "onBeforeRouteLeave": {
+    "prefix": "onBeforeRouteLeave",
+    "body": [
+      "onBeforeRouteLeave((to, from) => {",
+      "\treturn false",
+      "})"
+    ],
+    "description": "在 setup 中访问, 取消导航并停留在同一页面上"
+  },
+  "onBeforeRouteUpdate": {
+    "prefix": "onBeforeRouteUpdate",
+    "body": [
+      "onBeforeRouteUpdate(async (to, from) => {",
+      "\treturn false",
+      "})"
+    ],
+    "description": "在 setup 中访问, 仅当 id 更改时才获取用户，例如仅 query 或 hash 值已更改"
+  }
+}

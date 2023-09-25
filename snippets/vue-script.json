@@ -1,0 +1,124 @@
+{
+  "import": {
+		"prefix": "import",
+		"body": ["import { $1 } from '$2'"],
+		"description": "import {...} from ..."
+	},
+	"setup": {
+		"prefix": "setup",
+		"body": ["setup($3,$4) {", "\t$0", "\treturn {", "\t\t$1", "\t}", "},"],
+		"description": "setup"
+	},
+	"defineProps": {
+		"prefix": "vprops",
+		"body": ["const props = defineProps({\t", "${0:name} : ${1:value}\t", "})"],
+		"description": "defineProps element"
+	},
+	"defineEmits": {
+		"prefix": "vemits",
+		"body": ["const props = defineEmits([\t", "\"$0\"\t", "])"],
+		"description": "defineEmits element"
+	},
+  "computed": {
+		"prefix": "vcomputed",
+		"body": ["const ${1: now } = computed(() => ${2: Date.now()})"],
+		"description": "computed(()=>value)"
+	},
+  "watch": {
+    "prefix": "vwatch",
+    "body": [
+      "watch(",
+      "() => ${1: value},",
+      "(val: any, oldVal) => {",
+      "\t$2",
+      "},",
+      "${3: /** immediate：在侦听器创建时立即触发回调。第一次调用时旧值是 undefined。\n *  deep：如果源是对象，强制深度遍历，以便在深层级变更时触发回调。参考深层侦听器。\n *  flush：调整回调函数的刷新时机。参考回调的刷新时机及 watchEffect()。\n *  onTrack / onTrigger：调试侦听器的依赖。参考调试侦听器。\n*\/}",
+      ")"
+    ],
+    "description": "侦听一个或多个响应式数据源，并在数据源变化时调用所给的回调函数。"
+  },
+  "watchEffect": {
+    "prefix": "vwatchEffect",
+    "body": [
+      "watchEffect(",
+      "() => ${1: value},",
+      "${2: /** WatchEffectOptions { \n  *  flush?: 'pre' | 'post' | 'sync'  //默认：'pre' \n  *  pre: 侦听器将在组件渲染之前执行。 \n  *  post: 将会使侦听器延迟到组件渲染之后再执行。详见回调的触发时机。在某些特殊情况下 (例如要使缓存失效)，可能有必要在响应式依赖发生改变时立即触发侦听器。\n  *  sync: 该设置应谨慎使用，因为如果有多个属性同时更新，这将导致一些性能和数据一致性的问题。 \n  *  onTrack?: (event: DebuggerEvent) => void \n  *  onTrigger?: (event: DebuggerEvent) => void \n  * \\} \n  *\/}",
+      ")"
+    ],
+    "description": "立即运行一个函数，同时响应式地追踪其依赖，并在依赖更改时重新执行"
+  },
+  "onMounted": {
+    "prefix": "onMounted",
+    "body": ["onMounted(() => {$0})"],
+    "description": "注册一个回调函数，在组件挂载完成后执行"
+  },
+  "onUpdated": {
+    "prefix": "onUpdated",
+    "body": ["onUpdated(() => {$0})"],
+    "description": "注册一个回调函数，在组件因为响应式状态变更而更新其 DOM 树之后调用"
+  },
+  "onUnmounted": {
+    "prefix": "onUnmounted",
+    "body": ["onUnmounted(() => {$0})"],
+    "description": "注册一个回调函数，在组件实例被卸载之后调用"
+  },
+  "onBeforeMount": {
+    "prefix": "onBeforeMount",
+    "body": ["onBeforeMount(() => {$0})"],
+    "description": "注册一个钩子，在组件被挂载之前被调用"
+  },
+  "onBeforeUpdate": {
+    "prefix": "onBeforeUpdate",
+    "body": ["onBeforeUpdate(() => {$0})"],
+    "description": "注册一个钩子，在组件即将因为响应式状态变更而更新其 DOM 树之前调用"
+  },
+  "onBeforeUnmount": {
+    "prefix": "onBeforeUnmount",
+    "body": ["onBeforeUnmount(() => {$0})"],
+    "description": "注册一个钩子，在组件实例被卸载之前调用"
+  },
+  "onErrorCaptured": {
+    "prefix": "onErrorCaptured",
+    "body": ["onErrorCaptured((error: unknown, instance: ComponentPublicInstance | null, info: stgring ): void | boolean => {$0})"],
+    "description": "注册一个钩子，在捕获了后代组件传递的错误时调用"
+  },
+  "onRenderTracked": {
+    "prefix": "onRenderTracked",
+    "body": ["onRenderTracked((effect: ReactiveEffect, target: object, type: TrackOpTypes /* 'get' | 'has' | 'iterate' */, key: any ): void => {$0})"],
+    "description": "注册一个调试钩子，当组件渲染过程中追踪到响应式依赖时调用"
+  },
+  "onRenderTriggered": {
+    "prefix": "onRenderTriggered",
+    "body": ["onRenderTriggered((effect: ReactiveEffect, target: object, type: TrackOpTypes /* 'set' | 'add' | 'delete' | 'clear' */, key: any, newValue?: any, oldValue: any, oldTarget?: Map<any, any> | Set<any> ): void => {$0})"],
+    "description": "注册一个调试钩子，当响应式依赖的变更触发了组件渲染时调用"
+  },
+  "onActivated": {
+    "prefix": "onActivated",
+    "body": ["onActivated((): void => {$0})"],
+    "description": "注册一个回调函数，若组件实例是 <KeepAlive> 缓存树的一部分，当组件被插入到 DOM 中时调用"
+  },
+  "onDeactivated": {
+    "prefix": "onDeactivated",
+    "body": ["onDeactivated((): void => {$0})"],
+    "description": "注册一个回调函数，若组件实例是 <KeepAlive> 缓存树的一部分，当组件从 DOM 中被移除时调用"
+  },
+  "onServerPrefetch": {
+    "prefix": "onServerPrefetch",
+    "body": ["onServerPrefetch((): void => {${0: Promise<any>}})"],
+    "description": "注册一个异步函数，在组件实例在服务器上被渲染之前调用"
+  },
+  "provide": {
+    "prefix": "vprovide",
+    "body": [
+      "provide(${1: InjectionKey<T>|string}, ${2: value: T})"
+    ],
+    "description": "提供一个值，可以被后代组件注入"
+  },
+  "inject": {
+    "prefix": "vinject",
+    "body": [
+      "const value = inject(${1: InjectionKey<T>|string}, ${2: defaultValue: () => T})"
+    ],
+    "description": "注入一个由祖先组件或整个应用 (通过 app.provide()) 提供的值"
+  }
+}

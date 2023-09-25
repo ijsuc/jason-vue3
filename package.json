@@ -2,7 +2,7 @@
   "name": "jason-vue3",
   "displayName": "jason-vue3",
   "description": "",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.50.0"
   },
@@ -13,8 +13,16 @@
   "contributes": {
     "snippets": [
       {
-        "language": "",
+        "language": "vue",
         "path": "./snippets/snippets.code-snippets"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/vue-router.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/vue-script.json"
       }
     ]
   }
