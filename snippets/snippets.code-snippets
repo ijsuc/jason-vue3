@@ -1,0 +1,16 @@
+{
+  "script ts setup": {
+    "prefix": "scrts",
+    "body": [
+      "<script lang=\"ts\" setup></script>"
+    ],
+    "description": "script ts setup"
+  },
+  "script tsx setup": {
+    "prefix": "scrtsx",
+    "body": [
+      "<script lang=\"ts\" setup></script>"
+    ],
+    "description": "script tsx setup"
+  }
+}

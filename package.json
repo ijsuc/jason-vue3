@@ -1,0 +1,21 @@
+{
+  "name": "jason-vue3",
+  "displayName": "jason-vue3",
+  "description": "",
+  "version": "0.0.2",
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "publisher": "jasonChina",
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  }
+}
